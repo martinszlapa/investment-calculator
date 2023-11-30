@@ -1,0 +1,15 @@
+{
+  "stocks": [
+    {
+      "index": 1,
+      "name": "Apple",
+      "price": 100,
+      "path": "./data/JSON/AAPL.json"
+    },
+    {
+      "index": 2,
+      "name": "Google",
+      "price": 200
+    }
+  ]
+}
