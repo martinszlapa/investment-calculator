@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92d4af31-6c44-4ba8-a1dc-e86047d86541" name="Changes" comment="started working on making stock update graph">
-      <change afterPath="$PROJECT_DIR$/src/data/GetJSON.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="92d4af31-6c44-4ba8-a1dc-e86047d86541" name="Changes" comment="Trying new approach, going to delete old data retrieval in Chart.js file.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Chart/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chart/Chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StockSelect/StockSelect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockSelect/StockSelect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/GetJSON.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/GetJSON.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/JSON/stocks.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/JSON/stocks.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +90,7 @@
       <workItem from="1701372300217" duration="5810000" />
       <workItem from="1701698223637" duration="1325000" />
       <workItem from="1701796422673" duration="2746000" />
-      <workItem from="1701875319614" duration="2491000" />
+      <workItem from="1701875319614" duration="4074000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -118,7 +116,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701308023530</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Trying new approach, going to delete old data retrieval in Chart.js file.">
+      <option name="closed" value="true" />
+      <created>1701880688202</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701880688202</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +145,7 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="initial commit part 2" />
     <MESSAGE value="started working on making stock update graph" />
-    <option name="LAST_COMMIT_MESSAGE" value="started working on making stock update graph" />
+    <MESSAGE value="Trying new approach, going to delete old data retrieval in Chart.js file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Trying new approach, going to delete old data retrieval in Chart.js file." />
   </component>
 </project>

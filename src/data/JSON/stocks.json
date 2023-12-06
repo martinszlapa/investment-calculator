@@ -10,6 +10,7 @@
     {
       "index": 2,
       "name": "Google",
+      "symbol": "GOOG",
       "price": 200
     }
   ]
