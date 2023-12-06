@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92d4af31-6c44-4ba8-a1dc-e86047d86541" name="Changes" comment="initial commit part 2">
-      <change afterPath="$PROJECT_DIR$/src/StockSelect/StockSelect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/JSON/stocks.json" afterDir="false" />
+    <list default="true" id="92d4af31-6c44-4ba8-a1dc-e86047d86541" name="Changes" comment="started working on making stock update graph">
+      <change afterPath="$PROJECT_DIR$/src/data/GetJSON.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Chart/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chart/Chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Select/Select.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReadCSV.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockSelect/StockSelect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockSelect/StockSelect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/JSON/stocks.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/JSON/stocks.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,27 +40,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/marti/OneDrive/Documents/React/investment_calculator/src/Home",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/marti/OneDrive/Documents/React/investment_calculator/src/Home&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\marti\OneDrive\Documents\React\investment_calculator\src\Home" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\marti\OneDrive\Documents\React\investment_calculator\src" />
+      <recent name="C:\Users\marti\OneDrive\Documents\React\investment_calculator\public" />
       <recent name="C:\Users\marti\OneDrive\Documents\React\investment_calculator\src\data\CSV" />
       <recent name="C:\Users\marti\OneDrive\Documents\React\investment_calculator\src\data\JSON" />
     </key>
@@ -88,7 +88,11 @@
       <workItem from="1700585096409" duration="8754000" />
       <workItem from="1700663706104" duration="5674000" />
       <workItem from="1701098244602" duration="34000" />
-      <workItem from="1701304564264" duration="2956000" />
+      <workItem from="1701304564264" duration="3625000" />
+      <workItem from="1701372300217" duration="5810000" />
+      <workItem from="1701698223637" duration="1325000" />
+      <workItem from="1701796422673" duration="2746000" />
+      <workItem from="1701875319614" duration="2491000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -106,15 +110,35 @@
       <option name="project" value="LOCAL" />
       <updated>1700596568465</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="started working on making stock update graph">
+      <option name="closed" value="true" />
+      <created>1701308023529</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701308023530</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="initial commit part 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit part 2" />
+    <MESSAGE value="started working on making stock update graph" />
+    <option name="LAST_COMMIT_MESSAGE" value="started working on making stock update graph" />
   </component>
 </project>

@@ -3,8 +3,9 @@
     {
       "index": 1,
       "name": "Apple",
+      "symbol": "AAPL",
       "price": 100,
-      "path": "./data/JSON/AAPL.json"
+      "path": "../data/JSON/AAPL.json"
     },
     {
       "index": 2,

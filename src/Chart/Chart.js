@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {Bar} from 'react-chartjs-2';
 import 'chart.js/auto';
 import {faker} from '@faker-js/faker'
@@ -39,26 +39,47 @@ const Chart = (selectedStock) => {
     const [chartData, setChartData] = React.useState(data);
 
     React.useEffect(() => {
+        const selectedStockPath = selectedStock.selectedStock.path;
+        console.log(selectedStockPath);
 
-        const importStockData = async () => {
-            console.log(selectedStock);
-            console.log(selectedStock.selectedStock.path)
-            const stockJSON = await require(`${selectedStock.path}`);
-            console.log(stockJSON);
-            const newChartData = (
-                stockJSON.map((entry) => ({
-                        label: entry.Date,
-                        value: entry.Close,
-                    }
-                ))
-            )
+        fetch(selectedStockPath, {mode: 'no-cors'})
+            .then(response => {
+                console.log("Raw Response:", response);
+                return response.text();
+            })
+            .then(data => console.log("Data: ", data))
+            .catch(error => console.error(error))
+    },[selectedStock])
 
-            console.log(newChartData);
-        }
-
-        importStockData().then(r => console.log("done"));
-
-    }, [selectedStock]);
+    // React.useEffect(() => {
+    //
+    //
+    //     const importStockData = async () => {
+    //         try{
+    //         console.log(selectedStock);
+    //         console.log(selectedStock.selectedStock.path);
+    //
+    //         const selectedStockPath = selectedStock.selectedStock.path;
+    //         const stockModule = await require(`./data/JSON/${selectedStockPath}`);
+    //
+    //         const stockJSON = stockModule.default;
+    //
+    //         const newChartData = (
+    //             stockJSON.map((entry) => ({
+    //                     label: entry.Date,
+    //                     value: entry.Close,
+    //                 }
+    //             ))
+    //         )
+    //
+    //         setChartData(newChartData)
+    //         } catch (e) {
+    //             console.log(e);
+    //         }
+    //     }
+    //     importStockData().then(r => console.log('donex'));
+    //
+    // }, [selectedStock]);
 
     return (
         <Bar
