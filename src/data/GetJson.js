@@ -1,6 +1,6 @@
-const GetJSON = async (stock) => {
+const GetJson = async (stock) => {
     const jsonPath = `./JSON/${stock.symbol}.json`
     return await require(`${jsonPath}`)
 }
 
-export default GetJSON;
+export default GetJson;

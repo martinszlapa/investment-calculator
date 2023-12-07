@@ -1,8 +1,7 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {Bar} from 'react-chartjs-2';
 import 'chart.js/auto';
 import {faker} from '@faker-js/faker'
-import GetJSON from "../data/GetJSON";
 
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 export const data = {
@@ -35,37 +34,26 @@ export const options = {
 };
 
 
-const Chart = (selectedStock) => {
-
+const Chart = ({stockJson}, stockName) => {
     const [chartData, setChartData] = React.useState(data);
 
     useEffect(() => {
-        const GetChartData = async () => {
-            console.log(selectedStock.selectedStock);
-            const json = await GetJSON(selectedStock.selectedStock);
-            console.log("JSON:", json);
-
-            const newLabels = json.map((item) => item.Date);
-            const newDatasets = [
-                {
-                    label: 'Dataset 1',
-                    data: json.map((item) => item.Close),
-                    backgroundColor : 'rgba(53, 162, 235, 0.5)',
-                },
-            ]
-
-            const newData = {
-                labels: newLabels,
-                datasets: newDatasets,
-            }
-
-            console.log("New Data: ", newData);
-
-            setChartData(newData);
+        console.log("refreshing chart");
+        const newLabels = stockJson.map((item) => item.Date);
+        const newDatasets = [
+            {
+                label: stockName,
+                data: stockJson.map((item) => item.Close),
+                backgroundColor : 'rgba(53, 162, 235, 0.5)',
+            },
+        ]
+        const newData = {
+            labels: newLabels,
+            datasets: newDatasets,
         }
-        GetChartData();
-    }, [selectedStock]);
-
+        console.log("newData", newData);
+        setChartData(newData);
+    }, stockJson);
     return (
         <Bar
             data={chartData}

@@ -1,8 +1,8 @@
 const fs = require('fs');
 const csvtojson = require('csvtojson');
 
-const csvFilePath = './data/AAPL.csv';
-const jsonFilePath = './data/AAPL.json';
+const csvFilePath = './data/CSV/GOOG.csv';
+const jsonFilePath = './data/JSON/GOOG.json';
 
 // Read CSV file and convert to JSON
 csvtojson()
