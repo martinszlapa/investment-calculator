@@ -34,16 +34,28 @@ export const options = {
 };
 
 
-const Chart = ({stockJson}, stockName) => {
+const Chart = ({stockJson, selectedDate, selectedInvestment, reinvest}, stockName) => {
+
+    // const [stockCount, setStockCount] = React.useState(0);
+
     const [chartData, setChartData] = React.useState(data);
 
     useEffect(() => {
+        let totalInvestment = 0;
+        let stockCount = 0;
+
         console.log("refreshing chart");
         const newLabels = stockJson.map((item) => item.Date);
         const newDatasets = [
             {
                 label: stockName,
-                data: stockJson.map((item) => item.Close),
+                data: stockJson.map((item) => {
+                    console.log("total investment", totalInvestment);
+                    if (reinvest) totalInvestment += selectedInvestment;
+                    stockCount = totalInvestment / stockJson.find((item) => item.Date === selectedDate).Close;
+                    console.log("stockCount", stockCount);
+                    return stockCount * item.Close
+                }),
                 backgroundColor : 'rgba(53, 162, 235, 0.5)',
             },
         ]
@@ -53,7 +65,7 @@ const Chart = ({stockJson}, stockName) => {
         }
         console.log("newData", newData);
         setChartData(newData);
-    }, stockJson);
+    }, [stockJson, selectedDate, selectedInvestment, reinvest, stockName]);
     return (
         <Bar
             data={chartData}
