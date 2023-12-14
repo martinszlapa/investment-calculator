@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92d4af31-6c44-4ba8-a1dc-e86047d86541" name="Changes" comment="Almost all working dropdowns/graph">
-      <change afterPath="$PROJECT_DIR$/src/InvestmentSelect/InvestmentSelect.js" afterDir="false" />
+    <list default="true" id="92d4af31-6c44-4ba8-a1dc-e86047d86541" name="Changes" comment="now takes an investment and reinvests every day to increase the amount. Dropdown exists for daily/weekly/etc. but isn't in function yet.">
+      <change afterPath="$PROJECT_DIR$/python/fetchData.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Home/Home.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/InvestmentSelect/InvestmentSelect.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockSelect/StockSelect.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Chart/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chart/Chart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InvestmentSelect/InvestmentSelect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/InvestmentSelect/InvestmentSelect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockSelect/StockSelect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockSelect/StockSelect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/GetJson.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/GetJson.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +97,10 @@
       <workItem from="1701698223637" duration="1325000" />
       <workItem from="1701796422673" duration="2746000" />
       <workItem from="1701875319614" duration="13202000" />
-      <workItem from="1702305482999" duration="12609000" />
+      <workItem from="1702305482999" duration="13841000" />
+      <workItem from="1702396011640" duration="6350000" />
+      <workItem from="1702474611003" duration="12357000" />
+      <workItem from="1702563971254" duration="1256000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -141,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701913525797</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="now takes an investment and reinvests every day to increase the amount. Dropdown exists for daily/weekly/etc. but isn't in function yet.">
+      <option name="closed" value="true" />
+      <created>1702331738063</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1702331738063</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,6 +182,7 @@
     <MESSAGE value="Trying new approach, going to delete old data retrieval in Chart.js file." />
     <MESSAGE value="Got it to display stock prices!" />
     <MESSAGE value="Almost all working dropdowns/graph" />
-    <option name="LAST_COMMIT_MESSAGE" value="Almost all working dropdowns/graph" />
+    <MESSAGE value="now takes an investment and reinvests every day to increase the amount. Dropdown exists for daily/weekly/etc. but isn't in function yet." />
+    <option name="LAST_COMMIT_MESSAGE" value="now takes an investment and reinvests every day to increase the amount. Dropdown exists for daily/weekly/etc. but isn't in function yet." />
   </component>
 </project>

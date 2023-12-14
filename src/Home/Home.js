@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Chart from "../Chart/Chart";
 import StockSelect from "../StockSelect/StockSelect";
-import {Col, Row} from "react-bootstrap";
+import {Col} from "react-bootstrap";
 import data from '../data/JSON/stocks.json';
 import DateSelect from "../DateSelect/DateSelect";
 import InvestmentSelect from "../InvestmentSelect/InvestmentSelect";
@@ -13,7 +13,7 @@ const Home = () => {
     const [selectedDate, setSelectedDate] = React.useState("2004-08-19");
     const [selectedInvestment, setSelectedInvestment] = React.useState(1000);
 
-    const [reinvest, setReinvest] = React.useState(false);
+    const [reinvestInterval, setReinvestInterval] = React.useState(0);
 
     const [json, setJson] = React.useState([
             {
@@ -43,6 +43,7 @@ const Home = () => {
         console.log("json: ", json);
         setJson(json)
     }
+
     function handleStockSelect(stock) {
         console.log("stock selected: ", stock);
         setSelectedStock(stock);
@@ -59,41 +60,47 @@ const Home = () => {
         setSelectedInvestment(investment);
     }
 
-    function handleReinvestSelect(reinvest) {
-        console.log("reinvest selected: ", reinvest);
-        setReinvest(reinvest==="on");
+
+    function handleReinvestIntervalSelect(reinvestInterval) {
+        console.log("reinvest interval selected: ", reinvestInterval);
+        setReinvestInterval(reinvestInterval);
     }
 
     return (
         <div>
             <h1>Home</h1>
-            <Row>
-                <Col>
-                    Stock
-                    <StockSelect onStockSelect={handleStockSelect}/>
-                    Initial Investment Date
-                    <DateSelect
-                        onDateSelect={handleDateSelect}
-                        dateArray={json.map((item) => item.Date)}
-                    />
-                    Invested Amount CAD
-                    <InvestmentSelect
-                        onInvestmentSelect={handleInvestmentSelect}
-                        onReinvestSelect={handleReinvestSelect}
-                    />
-                </Col>
-                <Col xs={12} md={12} lg={12} xl={12}>
-                    <Chart
-                        stockJson={json}
-                        stockName={selectedStock.name}
-                        selectedDate={selectedDate}
-                        selectedInvestment={selectedInvestment}
-                        reinvest={reinvest}
-                    />
-                </Col>
-            </Row>
+
+            <div className="d-flex flex-row align-items-center">
+            <p>
+                What if I'd invested in
+            </p>
+            {<StockSelect
+                onStockSelect={handleStockSelect}
+            />}
+            <p>
+                on
+            </p>
+            <DateSelect
+                onDateSelect={handleDateSelect}
+                dateArray={json.map((item) => item.Date)}
+            />
+            <InvestmentSelect
+                onInvestmentSelect={handleInvestmentSelect}
+                onReinvestIntervalSelect={handleReinvestIntervalSelect}
+            />
+            </div>
+            <Col xs={12} md={12} lg={12} xl={12}>
+                <Chart
+                    stockJson={json.filter((item) => Date.parse(item.Date) >= Date.parse(selectedDate))}
+                    stockName={selectedStock.name}
+                    selectedDate={selectedDate}
+                    selectedInvestment={selectedInvestment}
+                    reinvestInterval={reinvestInterval}
+                />
+            </Col>
         </div>
-    );
+    )
+        ;
 }
 
 export default Home;

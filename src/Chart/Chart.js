@@ -34,14 +34,15 @@ export const options = {
 };
 
 
-const Chart = ({stockJson, selectedDate, selectedInvestment, reinvest}, stockName) => {
+const Chart = ({stockJson, selectedDate, selectedInvestment, reinvestInterval}, stockName) => {
 
-    // const [stockCount, setStockCount] = React.useState(0);
 
     const [chartData, setChartData] = React.useState(data);
+    const [finalStockCount, setFinalStockCount] = React.useState(0);
+    const [totalInvestment, setTotalInvestment] = React.useState(0);
 
     useEffect(() => {
-        let totalInvestment = 0;
+        let cumulativeInvestment = 0;
         let stockCount = 0;
 
         console.log("refreshing chart");
@@ -51,12 +52,51 @@ const Chart = ({stockJson, selectedDate, selectedInvestment, reinvest}, stockNam
                 label: stockName,
                 data: stockJson.map((item) => {
                     console.log("total investment", totalInvestment);
-                    if (reinvest) totalInvestment += selectedInvestment;
-                    stockCount = totalInvestment / stockJson.find((item) => item.Date === selectedDate).Close;
-                    console.log("stockCount", stockCount);
+                    if (reinvestInterval !== 0) {
+                        const itemDate = new Date(item.Date);
+                        switch (reinvestInterval) {
+                            case 1:
+                                stockCount += selectedInvestment / item.Close;
+                                cumulativeInvestment += selectedInvestment;
+                                break;
+                            case 7:
+                                if (itemDate.getDay() === 1) { // Monday
+                                    console.log("adding daily: ", item.Date);
+                                    stockCount += selectedInvestment / item.Close;
+                                    cumulativeInvestment += selectedInvestment;
+                                }
+
+                                break;
+                            case 30:
+                                if (itemDate.getDate() === 1) { // First of the month
+                                    console.log("adding monthly: ", item.Date);
+                                    stockCount += selectedInvestment / item.Close;
+                                    cumulativeInvestment += selectedInvestment;
+                                }
+                                break;
+                            case 365:
+                                if (itemDate.getMonth() === 0 && itemDate.getDate() === 1) { // First of the year
+                                    console.log("adding yearly: ", item.Date);
+                                    stockCount += selectedInvestment / item.Close;
+                                    cumulativeInvestment += selectedInvestment;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    } else {
+                        stockCount = selectedInvestment / stockJson[0].Close;
+                        cumulativeInvestment = selectedInvestment;
+                    }
+                    setTotalInvestment(cumulativeInvestment);
+                    setFinalStockCount(stockCount);
+
+                    console.log("cumulative investment", cumulativeInvestment);
+                    console.log("stock count", stockCount);
+
                     return stockCount * item.Close
                 }),
-                backgroundColor : 'rgba(53, 162, 235, 0.5)',
+                backgroundColor: 'rgba(53, 162, 235, 0.5)',
             },
         ]
         const newData = {
@@ -65,12 +105,19 @@ const Chart = ({stockJson, selectedDate, selectedInvestment, reinvest}, stockNam
         }
         console.log("newData", newData);
         setChartData(newData);
-    }, [stockJson, selectedDate, selectedInvestment, reinvest, stockName]);
+    }, [stockJson, selectedDate, selectedInvestment, stockName, reinvestInterval]);
     return (
+        <div>
         <Bar
             data={chartData}
             options={options}
         />
+            <p>You would have invested {
+                new Intl.NumberFormat('en-CA', {style: 'currency', currency: 'CAD'}).format(totalInvestment)
+            } in total, and ended up with {
+                new Intl.NumberFormat('en-CA', {style: 'currency', currency: 'CAD'}).format(finalStockCount*stockJson[stockJson.length - 1].Close)
+            } worth of stock.</p>
+        </div>
     );
 }
 
