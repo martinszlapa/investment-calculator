@@ -4,6 +4,11 @@ import StockSelect from "../StockSelect/StockSelect";
 import {Col} from "react-bootstrap";
 import data from '../data/JSON/stocks.json';
 import DateSelect from "../DateSelect/DateSelect";
+import StockSearch from "../StockSearch/StockSearch";
+
+import fetchStockJsonApi from "../data/fetchStockJsonApi";
+
+
 import InvestmentSelect from "../InvestmentSelect/InvestmentSelect";
 import GetJson from "../data/GetJson";
 
@@ -37,6 +42,13 @@ const Home = () => {
         ]
     );
 
+
+    const handleStockSearchSubmit = (event) => {
+        event.preventDefault();
+        console.log("searching for stock: ", event.target.value);
+        fetchStockJsonApi(event.target.value).then(r => console.log("fetchStockJsonApi returned: ", r));
+    }
+
     const GetJsonOnStockUpdate = async () => {
         console.log("getting json for", selectedStock);
         const json = await GetJson(selectedStock);
@@ -69,6 +81,9 @@ const Home = () => {
     return (
         <div>
             <h1>Home</h1>
+            <StockSearch
+                handleStockSearchSubmit={handleStockSearchSubmit}
+            />
 
             <div className="d-flex flex-row align-items-center">
             <p>

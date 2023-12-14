@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92d4af31-6c44-4ba8-a1dc-e86047d86541" name="Changes" comment="Chart changes, added python venv to start">
-      <change afterPath="$PROJECT_DIR$/src/data/fetchStockJsonApi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/python/fetchStockJson.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/python/python.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="92d4af31-6c44-4ba8-a1dc-e86047d86541" name="Changes" comment="Implemented stocksearch partially as a test.">
+      <change afterPath="$PROJECT_DIR$/src/StockSearch/StockSearch.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/investment_calculator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/investment_calculator.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Chart/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chart/Chart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/fetchStockJsonApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/fetchStockJsonApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/python/fetchStockJson.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/fetchStockJson.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/python/python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/python/python.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,11 +85,11 @@
       <recent name="C:\Users\marti\OneDrive\Documents\React\investment_calculator\src\Home" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\marti\OneDrive\Documents\React\investment_calculator" />
       <recent name="C:\Users\marti\OneDrive\Documents\React\investment_calculator\src\python" />
       <recent name="C:\Users\marti\OneDrive\Documents\React\investment_calculator\src" />
       <recent name="C:\Users\marti\OneDrive\Documents\React\investment_calculator\python" />
       <recent name="C:\Users\marti\OneDrive\Documents\React\investment_calculator\src\data\JSON" />
-      <recent name="C:\Users\marti\OneDrive\Documents\React\investment_calculator\public" />
     </key>
   </component>
   <component name="RunManager" selected="Python.fetchStockJson (1)">
@@ -166,7 +169,7 @@
       <workItem from="1702474611003" duration="12357000" />
       <workItem from="1702563971254" duration="1256000" />
       <workItem from="1702565772703" duration="4853000" />
-      <workItem from="1702579806645" duration="4001000" />
+      <workItem from="1702579806645" duration="7888000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -232,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702566098027</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added python API to fetch json data from yfinance yahoo finance data.">
+      <option name="closed" value="true" />
+      <created>1702583997578</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1702583997578</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,7 +269,9 @@
     <MESSAGE value="Almost all working dropdowns/graph" />
     <MESSAGE value="now takes an investment and reinvests every day to increase the amount. Dropdown exists for daily/weekly/etc. but isn't in function yet." />
     <MESSAGE value="Chart changes, added python venv to start" />
-    <option name="LAST_COMMIT_MESSAGE" value="Chart changes, added python venv to start" />
+    <MESSAGE value="Added python API to fetch json data from yfinance yahoo finance data." />
+    <MESSAGE value="Implemented stocksearch partially as a test." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented stocksearch partially as a test." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/investment_calculator$fetchData.coverage" NAME="fetchData Coverage Results" MODIFIED="1702569118910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python" />

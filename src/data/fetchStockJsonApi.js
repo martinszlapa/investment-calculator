@@ -5,4 +5,5 @@ function fetchAPI(ticker) {
         .then(response => console.log("fetched json", response.data))
 }
 
+
 export default fetchAPI;

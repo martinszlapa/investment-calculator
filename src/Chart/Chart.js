@@ -61,7 +61,7 @@ const Chart = ({stockJson, selectedDate, selectedInvestment, reinvestInterval}, 
                                 break;
                             case 7:
                                 if (itemDate.getDay() === 1) { // Monday
-                                    console.log("adding daily: ", item.Date);
+                                    // console.log("adding daily: ", item.Date);
                                     stockCount += selectedInvestment / item.Close;
                                     cumulativeInvestment += selectedInvestment;
                                 }
@@ -69,14 +69,14 @@ const Chart = ({stockJson, selectedDate, selectedInvestment, reinvestInterval}, 
                                 break;
                             case 30:
                                 if (itemDate.getDate() === 1) { // First of the month
-                                    console.log("adding monthly: ", item.Date);
+                                    // console.log("adding monthly: ", item.Date);
                                     stockCount += selectedInvestment / item.Close;
                                     cumulativeInvestment += selectedInvestment;
                                 }
                                 break;
                             case 365:
                                 if (itemDate.getMonth() === 0 && itemDate.getDate() === 1) { // First of the year
-                                    console.log("adding yearly: ", item.Date);
+                                    // console.log("adding yearly: ", item.Date);
                                     stockCount += selectedInvestment / item.Close;
                                     cumulativeInvestment += selectedInvestment;
                                 }
@@ -91,8 +91,8 @@ const Chart = ({stockJson, selectedDate, selectedInvestment, reinvestInterval}, 
                     setTotalInvestment(cumulativeInvestment);
                     setFinalStockCount(stockCount);
 
-                    console.log("cumulative investment", cumulativeInvestment);
-                    console.log("stock count", stockCount);
+                    // console.log("cumulative investment", cumulativeInvestment);
+                    // console.log("stock count", stockCount);
 
                     return stockCount * item.Close
                 }),
