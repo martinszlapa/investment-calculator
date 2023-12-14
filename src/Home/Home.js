@@ -43,10 +43,11 @@ const Home = () => {
     );
 
 
-    const handleStockSearchSubmit = (event) => {
-        event.preventDefault();
-        console.log("searching for stock: ", event.target.value);
-        fetchStockJsonApi(event.target.value).then(r => console.log("fetchStockJsonApi returned: ", r));
+    const handleStockSearchSubmit = async (ticker) => {
+        // event.preventDefault();
+        console.log("searching for stock: ", ticker);
+        let output = await fetchStockJsonApi(ticker);
+        console.log("fetchStockJsonApi returned: ", output)
     }
 
     const GetJsonOnStockUpdate = async () => {

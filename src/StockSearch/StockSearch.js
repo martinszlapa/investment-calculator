@@ -11,8 +11,11 @@ const StockSearch = ({handleStockSearchSubmit}) => {
 
     return (
         <div>
-            <Form>
-                <Form.Control value={search} onSubmit={handleStockSearchSubmit} onChange={handleSearch} type="text" placeholder="Search..." className="mr-sm-2"/>
+            <Form onSubmit={(event) => {
+                event.preventDefault();
+                handleStockSearchSubmit(search);
+            }}>
+                <Form.Control value={search} onChange={handleSearch} type="text" placeholder="Search..." className="mr-sm-2"/>
             </Form>
         </div>
     );
