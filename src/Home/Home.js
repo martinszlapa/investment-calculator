@@ -6,11 +6,11 @@ import data from '../data/JSON/stocks.json';
 import DateSelect from "../DateSelect/DateSelect";
 import StockSearch from "../StockSearch/StockSearch";
 
+import fetchStockJsonApi from "../data/fetchStockJsonApi";
 
 
 import InvestmentSelect from "../InvestmentSelect/InvestmentSelect";
 import GetJson from "../data/GetJson";
-import fetchConvertStockApi from "../data/fetchConvertStockApi";
 
 const Home = () => {
 
@@ -43,12 +43,10 @@ const Home = () => {
     );
 
 
-    const handleStockSearchSubmit = async (ticker) => {
-        // event.preventDefault();
-        console.log("searching for stock: ", ticker);
-        let output = await fetchConvertStockApi(ticker);
-        console.log("fetchStockJsonApi returned: ", output)
-        setJson(output);
+    const handleStockSearchSubmit = (event) => {
+        event.preventDefault();
+        console.log("searching for stock: ", event.target.value);
+        fetchStockJsonApi(event.target.value).then(r => console.log("fetchStockJsonApi returned: ", r));
     }
 
     const GetJsonOnStockUpdate = async () => {
